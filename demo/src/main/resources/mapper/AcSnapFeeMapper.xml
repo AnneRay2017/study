@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.AcSnapFeeMapper">
+  <resultMap id="BaseResultMap" type="com.example.model.AcSnapFee">
+    <constructor>
+      <arg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="xm_list_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fee_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fee_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fee_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fee_currency" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fee_calc_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="base_amt_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fee_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fee_amt" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="min_fee_amt" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="max_fee_amt" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="is_share" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="fee_terms" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fee_begin_term" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="gmt_create" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="gmt_creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gmt_modify" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="gmt_modifier" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.example.model.AcSnapFee">
+    insert into ac_snap_fee (id, xm_list_code, fee_code, 
+      fee_desc, fee_type, fee_currency, 
+      fee_calc_type, base_amt_type, fee_rate, 
+      fee_amt, min_fee_amt, max_fee_amt, 
+      is_share, fee_terms, fee_begin_term, 
+      gmt_create, gmt_creator, gmt_modify, 
+      gmt_modifier)
+    values (#{id,jdbcType=BIGINT}, #{xmListCode,jdbcType=VARCHAR}, #{feeCode,jdbcType=VARCHAR}, 
+      #{feeDesc,jdbcType=VARCHAR}, #{feeType,jdbcType=VARCHAR}, #{feeCurrency,jdbcType=VARCHAR}, 
+      #{feeCalcType,jdbcType=VARCHAR}, #{baseAmtType,jdbcType=VARCHAR}, #{feeRate,jdbcType=DECIMAL}, 
+      #{feeAmt,jdbcType=DECIMAL}, #{minFeeAmt,jdbcType=DECIMAL}, #{maxFeeAmt,jdbcType=DECIMAL}, 
+      #{isShare,jdbcType=TINYINT}, #{feeTerms,jdbcType=VARCHAR}, #{feeBeginTerm,jdbcType=INTEGER}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtCreator,jdbcType=VARCHAR}, #{gmtModify,jdbcType=TIMESTAMP}, 
+      #{gmtModifier,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.model.AcSnapFee">
+    insert into ac_snap_fee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="xmListCode != null">
+        xm_list_code,
+      </if>
+      <if test="feeCode != null">
+        fee_code,
+      </if>
+      <if test="feeDesc != null">
+        fee_desc,
+      </if>
+      <if test="feeType != null">
+        fee_type,
+      </if>
+      <if test="feeCurrency != null">
+        fee_currency,
+      </if>
+      <if test="feeCalcType != null">
+        fee_calc_type,
+      </if>
+      <if test="baseAmtType != null">
+        base_amt_type,
+      </if>
+      <if test="feeRate != null">
+        fee_rate,
+      </if>
+      <if test="feeAmt != null">
+        fee_amt,
+      </if>
+      <if test="minFeeAmt != null">
+        min_fee_amt,
+      </if>
+      <if test="maxFeeAmt != null">
+        max_fee_amt,
+      </if>
+      <if test="isShare != null">
+        is_share,
+      </if>
+      <if test="feeTerms != null">
+        fee_terms,
+      </if>
+      <if test="feeBeginTerm != null">
+        fee_begin_term,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtCreator != null">
+        gmt_creator,
+      </if>
+      <if test="gmtModify != null">
+        gmt_modify,
+      </if>
+      <if test="gmtModifier != null">
+        gmt_modifier,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="xmListCode != null">
+        #{xmListCode,jdbcType=VARCHAR},
+      </if>
+      <if test="feeCode != null">
+        #{feeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="feeDesc != null">
+        #{feeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="feeType != null">
+        #{feeType,jdbcType=VARCHAR},
+      </if>
+      <if test="feeCurrency != null">
+        #{feeCurrency,jdbcType=VARCHAR},
+      </if>
+      <if test="feeCalcType != null">
+        #{feeCalcType,jdbcType=VARCHAR},
+      </if>
+      <if test="baseAmtType != null">
+        #{baseAmtType,jdbcType=VARCHAR},
+      </if>
+      <if test="feeRate != null">
+        #{feeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="feeAmt != null">
+        #{feeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="minFeeAmt != null">
+        #{minFeeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="maxFeeAmt != null">
+        #{maxFeeAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="isShare != null">
+        #{isShare,jdbcType=TINYINT},
+      </if>
+      <if test="feeTerms != null">
+        #{feeTerms,jdbcType=VARCHAR},
+      </if>
+      <if test="feeBeginTerm != null">
+        #{feeBeginTerm,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreator != null">
+        #{gmtCreator,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModify != null">
+        #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModifier != null">
+        #{gmtModifier,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
